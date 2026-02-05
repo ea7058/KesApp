@@ -1,0 +1,82 @@
+/* Genel ayarlar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ortak container */
+.container, .login-box, .profile-box, .admin-box {
+  background: #020617;
+  padding: 24px;
+  width: 100%;
+  max-width: 380px;
+  border-radius: 14px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #38bdf8;
+}
+
+/* Inputlar */
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 8px;
+  border: 1px solid #1e293b;
+  outline: none;
+  background: #020617;
+  color: #e5e7eb;
+}
+
+input:focus {
+  border-color: #38bdf8;
+}
+
+/* Butonlar */
+button {
+  width: 100%;
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: #38bdf8;
+  color: #020617;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0ea5e9;
+}
+
+/* Linkler */
+a {
+  color: #38bdf8;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container, .login-box, .profile-box, .admin-box {
+    margin: 10px;
+  }
+}
