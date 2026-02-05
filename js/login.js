@@ -7,15 +7,10 @@ function login() {
     return;
   }
 
-  // Admin bilgisi
+  // Admin kontrolü
   const adminUser = localStorage.getItem("adminUser");
   const adminPass = localStorage.getItem("adminPass");
 
-  // Normal kullanıcı bilgisi
-  const savedUser = localStorage.getItem("username");
-  const savedPass = localStorage.getItem("password");
-
-  // Admin kontrolü
   if (u === adminUser && p === adminPass) {
     localStorage.setItem("username", adminUser);
     localStorage.setItem("role", "admin");
@@ -24,8 +19,13 @@ function login() {
   }
 
   // Normal kullanıcı kontrolü
-  if (u === savedUser && p === savedPass) {
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+  const foundUser = users.find(x => x.username === u && x.password === p);
+
+  if (foundUser) {
+    localStorage.setItem("username", foundUser.username);
     localStorage.setItem("role", "user");
+    localStorage.setItem("profileCode", foundUser.profileCode);
     window.location.href = "profile.html";
   } else {
     alert("Kullanıcı adı veya şifre yanlış!");
