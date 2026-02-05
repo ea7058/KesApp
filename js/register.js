@@ -4,7 +4,6 @@ function register() {
   const pass2 = document.getElementById("regPass2").value;
   const rulesChecked = document.getElementById("rulesCheck").checked;
 
-  // Kontroller
   if (!username || !pass1 || !pass2) {
     alert("Boş bırakma!");
     return;
@@ -25,17 +24,32 @@ function register() {
     return;
   }
 
-  // Kayıt
-  localStorage.setItem("username", username);
-  localStorage.setItem("password", pass1);
-  localStorage.setItem("role", "user");
+  // Mevcut kullanıcıları al
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+
+  // Aynı isim var mı kontrol
+  if (users.find(u => u.username === username)) {
+    alert("Bu kullanıcı adı zaten alınmış!");
+    return;
+  }
+
+  // Yeni kullanıcıyı ekle
+  const newUser = { 
+    username: username, 
+    password: pass1, 
+    role: "user", 
+    profileCode: "KES-" + Math.floor(100000 + Math.random() * 900000) 
+  };
+
+  users.push(newUser);
+  localStorage.setItem("users", JSON.stringify(users));
 
   // Admin bilgisi (sabit)
-  localStorage.setItem("adminUser", "KeremBey");
-  localStorage.setItem("adminPass", "Krm:2014!!");
+  if (!localStorage.getItem("adminUser")) {
+    localStorage.setItem("adminUser", "KeremBey");
+    localStorage.setItem("adminPass", "Krm:2014!!");
+  }
 
   alert("Kayıt başarılı! Giriş sayfasına yönlendiriliyorsun.");
-
-  // Login sayfasına yönlendir
   window.location.href = "login.html";
 }
