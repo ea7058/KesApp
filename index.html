@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>KesApp - Kayıt</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>KesApp</h1>
+
+    <!-- Kullanıcı Adı -->
+    <input id="regUser" type="text" placeholder="Kullanıcı adı">
+
+    <!-- Şifre -->
+    <input id="regPass1" type="password" placeholder="Şifre">
+    <input id="regPass2" type="password" placeholder="Şifre tekrar">
+
+    <!-- Kurallar -->
+    <div style="margin-top: 10px;">
+      <input type="checkbox" id="rulesCheck">
+      <label for="rulesCheck">Kuralları kabul ediyorum</label>
+    </div>
+
+    <!-- Kayıt Butonu -->
+    <button onclick="register()">Kayıt Ol</button>
+
+    <p style="margin-top: 10px;">
+      Zaten hesabın var mı? <a href="login.html">Giriş Yap</a>
+    </p>
+  </div>
+
+  <!-- JS Bağlantısı -->
+  <script src="js/register.js"></script>
+</body>
+</html>
